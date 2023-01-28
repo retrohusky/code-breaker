@@ -21,11 +21,11 @@ class Cipher
             return;
         }
 
-        $this->cipher = json_decode(file_get_contents($filename), true);
+        $this->cipher = array_flip(json_decode(file_get_contents($filename), true));
     }
 
-    public function getCipher()
+    public function decipherCharacter($element)
     {
-        return $this->cipher;
+        return $this->cipher[$element] ?? $element;
     }
 }

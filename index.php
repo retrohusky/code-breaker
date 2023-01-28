@@ -2,10 +2,15 @@
 
 namespace CodeBreaker;
 
+use CodeBreaker\Controllers\CipherController;
+
 require 'vendor/autoload.php';
 
 App::instance();
-var_dump(App::$path);
 
-$cipherController = new \CodeBreaker\Controllers\CipherController();
+
+$cipherController = new CipherController();
 $cipherController->loadCipher();
+$decoded = $cipherController->decode(')g!ld, j(!ad "> h>£ gdol>!o!" o!(!c>£');
+
+var_dump($decoded);
