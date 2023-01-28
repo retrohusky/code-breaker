@@ -1,0 +1,12 @@
+{
+    "name": "heintzel/code-breaker",
+    "type": "project",
+    "license": "MIT",
+    "version": "0.1.0",
+    "autoload": {
+        "psr-4": {
+            "CodeBreaker\\": "app/"
+        }
+    },
+    "require": {}
+}
