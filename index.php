@@ -1,18 +1,16 @@
 <?php
 
-use CodeBreaker\Entities\Cipher;
-
-require 'vendor/autoload.php';
+namespace CodeBreaker;
 
 class CodeBreaker
 {
-    const VERSION = '0.1.0';
+    protected const VERSION = '0.1.0';
 
-    const SLUG = 'code-breaker';
+    protected const SLUG = 'code-breaker';
 
     public static string $path = '';
 
-    private static $_instance;
+    private static $instance;
 
     /**
      * @return CodeBreaker
@@ -21,15 +19,15 @@ class CodeBreaker
      */
     public static function instance(): CodeBreaker
     {
-        if (null === self::$_instance) {
-            self::$_instance = new self();
+        if (null === self::$instance) {
+            self::$instance = new self();
         }
-        return self::$_instance;
+        return self::$instance;
     }
 
     public function __construct()
     {
-        self::$_instance = $this;
+        self::$instance = $this;
 
         $this->setPath();
     }
@@ -41,6 +39,8 @@ class CodeBreaker
         }
     }
 }
+
+require 'vendor/autoload.php';
 
 CodeBreaker::instance();
 

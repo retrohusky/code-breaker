@@ -2,20 +2,22 @@
 
 namespace CodeBreaker\Entities;
 
+use CodeBreaker\CodeBreaker;
+
 class Cipher
 {
     private array $cipher = [];
 
     public function __construct($cipherFile = 'default')
     {
-        $this->getCipherFromFile( $cipherFile );
+        $this->getCipherFromFile($cipherFile);
     }
 
-    private function getCipherFromFile( $cipherFile ): void
+    private function getCipherFromFile(string $cipherFile): void
     {
-        $filename = \CodeBreaker::$path . '/ciphers/' . $cipherFile . '.json';
+        $filename = CodeBreaker::$path . '/ciphers/' . $cipherFile . '.json';
 
-        if ( !file_exists( $filename ) ) {
+        if (!file_exists($filename)) {
             return;
         }
 

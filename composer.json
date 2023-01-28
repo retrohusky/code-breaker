@@ -8,5 +8,14 @@
             "CodeBreaker\\": "app/"
         }
     },
-    "require": {}
+    "scripts": {
+        "phpmd" : "vendor/bin/phpmd app text phpmd.xml",
+        "phpcs" : "vendor/bin/phpcs --extensions=php --standard=PSR12 app",
+        "phpcs fix" : "vendor/bin/phpcbf --extensions=php --standard=PSR12 app"
+    },
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": ">=3.7.1",
+        "phpmd/phpmd": ">=2.13.0"
+    }
 }
