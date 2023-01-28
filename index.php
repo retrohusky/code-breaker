@@ -14,3 +14,10 @@ $cipherController->loadCipher();
 $decoded = $cipherController->decode(')g!ld, j(!ad "> h>£ gdol>!o!" o!(!c>£');
 
 var_dump($decoded);
+
+
+$cipherController2 = new CipherController();
+$cipherController2->loadCipher('cipher1');
+$coded = $cipherController2->code('hello world');
+
+var_dump($coded);

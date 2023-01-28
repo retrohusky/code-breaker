@@ -6,12 +6,28 @@ class Decoder
 {
     public function decode($message, Cipher $cipher): string
     {
+        return $this->processMessage($message, function ($element) use ($cipher) {
+            return $cipher->decipherCharacter($element);
+        });
+    }
+
+    public function code($message, Cipher $cipher): string
+    {
+        return $this->processMessage($message, function ($element) use ($cipher) {
+            return $cipher->codeCharacter($element);
+        });
+    }
+
+    private function processMessage($message, callable $callback): string
+    {
         $messageArray = mb_str_split($message);
 
-        $decodedMessage = array_map(function ($element) use ($cipher) {
-            return $cipher->decipherCharacter($element);
-        }, $messageArray);
+        if (!$messageArray) {
+            return '';
+        }
 
-        return implode($decodedMessage);
+        $processedMessage = array_map($callback, $messageArray);
+
+        return implode($processedMessage);
     }
 }

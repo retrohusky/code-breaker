@@ -7,6 +7,7 @@ use CodeBreaker\App;
 class Cipher
 {
     private array $cipher = [];
+    private array $cipherForCoding = [];
 
     public function __construct($cipherFile = 'default')
     {
@@ -21,11 +22,19 @@ class Cipher
             return;
         }
 
-        $this->cipher = array_flip(json_decode(file_get_contents($filename), true));
+        $cipher = json_decode(file_get_contents($filename), true);
+
+        $this->cipherForCoding = $cipher;
+        $this->cipher = array_flip($cipher);
     }
 
     public function decipherCharacter($element)
     {
         return $this->cipher[$element] ?? $element;
+    }
+
+    public function codeCharacter($element)
+    {
+        return $this->cipherForCoding[$element] ?? $element;
     }
 }

@@ -25,4 +25,9 @@ class CipherController
     {
         return $this->decoder->decode($message, $this->cipher);
     }
+
+    public function code($message)
+    {
+        return $this->decoder->code($message, $this->cipher);
+    }
 }
