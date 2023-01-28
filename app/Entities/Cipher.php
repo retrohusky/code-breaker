@@ -2,7 +2,7 @@
 
 namespace CodeBreaker\Entities;
 
-use CodeBreaker\CodeBreaker;
+use CodeBreaker\App;
 
 class Cipher
 {
@@ -15,12 +15,17 @@ class Cipher
 
     private function getCipherFromFile(string $cipherFile): void
     {
-        $filename = CodeBreaker::$path . '/ciphers/' . $cipherFile . '.json';
+        $filename = App::$path . '/ciphers/' . $cipherFile . '.json';
 
         if (!file_exists($filename)) {
             return;
         }
 
         $this->cipher = json_decode(file_get_contents($filename), true);
+    }
+
+    public function getCipher()
+    {
+        return $this->cipher;
     }
 }
