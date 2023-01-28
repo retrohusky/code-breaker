@@ -1,1 +1,0 @@
-{"version":1,"defects":{"CodeBreaker\\tests\\CipherTest::test__construct":5},"times":{"CodeBreaker\\tests\\CipherTest::test__construct":0.003,"CodeBreaker\\tests\\CipherTest::testIfCipherFileLoaded":0.003}}
