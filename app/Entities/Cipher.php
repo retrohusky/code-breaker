@@ -3,8 +3,9 @@
 namespace CodeBreaker\Entities;
 
 use CodeBreaker\App;
+use CodeBreaker\Interfaces\Cipherable;
 
-class Cipher
+class Cipher implements Cipherable
 {
     private array $cipher          = [];
     private array $cipherForCoding = [];
@@ -33,13 +34,13 @@ class Cipher
         return !empty($this->cipher) && !empty($this->cipherForCoding);
     }
 
-    public function decipherCharacter($element)
+    public function decodeCharacter(string $character)
     {
-        return $this->cipher[$element] ?? $element;
+        return $this->cipher[$character] ?? $character;
     }
 
-    public function codeCharacter($element)
+    public function codeCharacter(string $character)
     {
-        return $this->cipherForCoding[$element] ?? $element;
+        return $this->cipherForCoding[$character] ?? $character;
     }
 }

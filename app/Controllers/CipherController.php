@@ -4,12 +4,14 @@ namespace CodeBreaker\Controllers;
 
 use CodeBreaker\Entities\Cipher;
 use CodeBreaker\Entities\Decoder;
+use CodeBreaker\Interfaces\Cipherable;
+use CodeBreaker\Interfaces\Decodable;
 
 class CipherController
 {
-    private Cipher $cipher;
+    private Cipherable $cipher;
 
-    private Decoder $decoder;
+    private Decodable $decoder;
 
     public function __construct()
     {
@@ -26,7 +28,7 @@ class CipherController
         return $this->decoder->decode($message, $this->cipher);
     }
 
-    public function code($message)
+    public function code($message): false|string
     {
         return $this->decoder->code($message, $this->cipher);
     }

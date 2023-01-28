@@ -12,7 +12,7 @@ class DecoderTest extends TestCase
         parent::setUp();
         $this->cipher = $this->createMock(Cipher::class);
 
-        $this->cipher->method('decipherCharacter')
+        $this->cipher->method('decodeCharacter')
             ->willReturnCallback(function ($input) {
                 $cipherArray = [
                     'a' => 'z',

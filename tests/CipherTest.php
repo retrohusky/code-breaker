@@ -34,10 +34,10 @@ class CipherTest extends TestCase
 
     public function testDecipherCharacter()
     {
-        $this->assertEquals('z', $this->cipher->decipherCharacter('a'));
-        $this->assertEquals('y', $this->cipher->decipherCharacter('b'));
-        $this->assertEquals('x', $this->cipher->decipherCharacter('c'));
-        $this->assertEquals('d', $this->cipher->decipherCharacter('d'));
+        $this->assertEquals('z', $this->cipher->decodeCharacter('a'));
+        $this->assertEquals('y', $this->cipher->decodeCharacter('b'));
+        $this->assertEquals('x', $this->cipher->decodeCharacter('c'));
+        $this->assertEquals('d', $this->cipher->decodeCharacter('d'));
     }
 
     public function testCodeCharacter()

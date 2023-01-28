@@ -2,19 +2,22 @@
 
 namespace CodeBreaker\Entities;
 
-class Decoder
+use CodeBreaker\Interfaces\Cipherable;
+use CodeBreaker\Interfaces\Decodable;
+
+class Decoder implements Decodable
 {
-    public function decode($message, Cipher $cipher): string
+    public function decode(string $message, Cipherable $cipher): string
     {
-        return $this->processMessage($message, function ($element) use ($cipher) {
-            return $cipher->decipherCharacter($element);
+        return $this->processMessage($message, function ($character) use ($cipher) {
+            return $cipher->decodeCharacter($character);
         });
     }
 
-    public function code($message, Cipher $cipher): string
+    public function code(string $message, Cipherable $cipher): string
     {
-        return $this->processMessage($message, function ($element) use ($cipher) {
-            return $cipher->codeCharacter($element);
+        return $this->processMessage($message, function ($character) use ($cipher) {
+            return $cipher->codeCharacter($character);
         });
     }
 
