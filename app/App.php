@@ -4,7 +4,7 @@ namespace CodeBreaker;
 
 class App
 {
-    protected const VERSION = '0.1.0';
+    protected const VERSION = '0.2.0';
 
     protected const SLUG = 'code-breaker';
 
